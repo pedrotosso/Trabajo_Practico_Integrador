@@ -19,4 +19,5 @@ cathering = Servicio("Catering", 60000)
 bara_movil = Servicio("Barra movil", 12000)
 
 print(dj)
+print(type(dj))
 print(maquillaje)
