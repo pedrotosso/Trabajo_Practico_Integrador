@@ -30,3 +30,4 @@ class Controller:
             View.mostrar_reserva(self, registro=registro)
         else:
             View.respuesta_disponibilidad(self, disponibilidad=control)
+
