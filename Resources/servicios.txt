@@ -1,0 +1,10 @@
+1;dj;15000
+2;decoracion;10000
+3;cotillon;13000
+4;maquina de humo;5000
+5;maquillaje;3500
+6;musica en vivo;50000
+7;locutor;4000
+8;fotografo;15000
+9;catering;70000
+10;barra movil; 12000
