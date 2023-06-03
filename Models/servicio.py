@@ -1,10 +1,18 @@
 class Servicio:
-    def __init__(self, nombre, precio):
-        self.nombre = nombre
-        self.precio = precio
+    def __init__(self):
+        self.servicios = []
 
-    def __str__(self):
-        return f"{self.nombre}: ${self.precio}"
+    def traer_servicios(self):
+        matriz = []
+        with open("Resources/servicios.txt", "r") as file:
+            for line in file:
+                line = line.rstrip().split(sep=";")
+                matriz.append(line)
+        return matriz
+
+    def cargar_servicios(self, servicios):
+        self.servicios = servicios
+
 
 
 

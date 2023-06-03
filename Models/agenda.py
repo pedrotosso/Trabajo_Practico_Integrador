@@ -16,17 +16,14 @@ class Agenda:
         print("¡¡ Su reserva se guardo CORRECTAMENTE !!")
         print(f"{fecha};{titular};{monto_total};{monto_seña}\n")
 
-    def get_reserva(self):
-        fecha = input("INGRESE LA FECHA(dd/mm/aaaa) QUE DESEA RESERVAR: ")
-        with open("../Resources/agenda.txt", "r") as file:
-            for line in file:
-                line = line.rstrip()
-                reserva = line.split(sep=";")
-                if reserva[0] == fecha:
-                    print(f"La fecha: {reserva[0]} esta reservada por el señor: {reserva[1]}")
-                    break
-                else:
-                    print(f"La fecha {fecha} esta disponible")
+    def get_reserva(self, fecha):
+        for line in self.registros_agenda:
+            if line[0] == fecha:
+                disponibilidad = True
+                break
+            else:
+                disponibilidad = False
+        return disponibilidad
 
     def mod_reserva(self, busqueda, pos_modificado, modificador):
         matriz = []
@@ -55,8 +52,24 @@ class Agenda:
                 actualizacion = actualizacion.rstrip(";")
                 file.write(actualizacion)
 
-    def
+    def traer_registros(self):
+        matriz = []
+        with open("./Resources/agenda.txt", "r") as file:
+            for line in file:
+                line = line.rstrip().split(sep=";")
+                matriz.append(line)
+        return matriz
 
+    def cargar_registros(self, registros):
+        self.registros_agenda = registros
+
+    def consultar_reserva(self, fecha):
+        registro = []
+        for line in self.registros_agenda:
+            if line[0] == str(fecha):
+                registro = line
+                break
+        return registro
 
 
 

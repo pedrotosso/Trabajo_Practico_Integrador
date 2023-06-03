@@ -1,0 +1,1 @@
+12/34/56;titular;fecha ingreso;monto total;monto seña
