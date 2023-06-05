@@ -19,11 +19,29 @@ class Agenda:
     def get_reserva(self, fecha):
         for line in self.registros_agenda:
             if line[0] == fecha:
-                disponibilidad = True
+                disponibilidad = False
+                while True:
+                    dia = int(fecha[0:2])
+                    mes = int(fecha[3:5])
+                    año = fecha[6:9]
+                    if dia == 30:
+                        dia = 1
+                        mes = mes + 1
+                    else:
+                        dia = str(dia + 1)
+                    fecha_cercana = f"{dia}/{mes}/{año}"
+                    for registro in self.registros_agenda:
+                        if registro[0] == fecha_cercana:
+                            pass
+                        else:
+                            break
+                    break
                 break
             else:
-                disponibilidad = False
-        return disponibilidad
+                disponibilidad = True
+                fecha_cercana = fecha
+                break
+        return disponibilidad, fecha_cercana
 
     def mod_reserva(self, busqueda, pos_modificado, modificador):
         matriz = []

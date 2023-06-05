@@ -3,13 +3,15 @@ import self
 from Controller.controller import Controller
 
 controlador = Controller()
-Controller.inicializador(self)
-Controller.mostrar_msj_bienvenida(self)
-entrada_menu = Controller.menu_principal(self)
+controlador.inicializador()
+controlador.mostrar_msj_bienvenida()
+entrada_menu = controlador.menu_principal()
 if entrada_menu == 1:
-    Controller.consultar_fecha(self)
+    controlador.consultar_fecha()
+if entrada_menu == 2:
+    controlador.reg_reserva()
 if entrada_menu == 3:
-    Controller.consultar_reserva(self)
+    controlador.consultar_reserva()
 
 
 

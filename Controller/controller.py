@@ -2,6 +2,7 @@ from self import self
 from Models.servicio import Servicio
 from Models.agenda import Agenda
 from Views.views import View
+from Models.Cliente import Cliente
 
 
 class Controller:
@@ -15,8 +16,8 @@ class Controller:
 
     def consultar_fecha(self):
         fecha = View.pedir_fecha(self)
-        disponible = Agenda.get_reserva(self, fecha=fecha)
-        View.respuesta_disponibilidad(self, disponibilidad=disponible)
+        disponible, fecha_propuesta = Agenda.get_reserva(self, fecha=fecha)
+        View.respuesta_disponibilidad(self, disponibilidad=disponible, fecha=fecha_propuesta)
 
     def inicializador(self):
         Servicio.cargar_servicios(self, servicios=Servicio.traer_servicios(self))
@@ -31,3 +32,9 @@ class Controller:
         else:
             View.respuesta_disponibilidad(self, disponibilidad=control)
 
+
+    def reg_reserva(self):
+        disponible, fecha_propuesta = Agenda.get_reserva(self, fecha=View.pedir_fecha(self))
+        View.respuesta_disponibilidad(self, disponibilidad=disponible, fecha=fecha_propuesta)
+        titular, dni = View.pedir_nombre(self)
+        usuario = Cliente(nombre=titular, dni=dni, fecha_evento=fecha_propuesta)
