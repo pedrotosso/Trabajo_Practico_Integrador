@@ -38,3 +38,6 @@ class Controller:
         View.respuesta_disponibilidad(self, disponibilidad=disponible, fecha=fecha_propuesta)
         titular, dni = View.pedir_nombre(self)
         usuario = Cliente(nombre=titular, dni=dni, fecha_evento=fecha_propuesta)
+
+    def prueba_git():
+        pass
