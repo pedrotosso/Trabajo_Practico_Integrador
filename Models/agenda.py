@@ -4,8 +4,12 @@ from self import self
 
 
 class Agenda:
-    def __init__(self):
+    def __init__(self, fecha, titular):
+        self.fecha = fecha
+        self.titular = titular
         self.registros_agenda = []
+
+        
     def set_reserva(self):
         fecha = input("INGRESE LA FECHA(dd/mm/aaaa) QUE DESEA RESERVAR: ")
         titular = input("INGRESE EL NOMBRE Y APELLIDO DE QUIEN RESERVA: ")

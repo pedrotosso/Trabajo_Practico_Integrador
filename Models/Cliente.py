@@ -2,15 +2,18 @@ import datetime
 
 
 class Cliente:
-    def __init__(self, nombre, dni, fecha_evento):
+    def __init__(self, nombre, dni):
         self.nombre = nombre
         self.dni = dni
-        self.fecha_evento = fecha_evento
-        self.fecha_reserva = datetime.date
-        serv_contratados = []
-        evento = False
-        congreso = False
 
+    def get_nombre(self):
+        return self._nombre
+    
+    def get_dni(self):
+        return self._dni
+    
+    def set_nombre(self, nombre):
+        self._nombre = nombre
 
-    def set_serv_contratados(self, servicio):
-
+    def set_dni(self, dni):
+        self._dni = dni
