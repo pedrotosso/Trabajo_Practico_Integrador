@@ -14,7 +14,7 @@ class Controller:
         op_menu1 = View.menu_principal(self)
         return op_menu1
 
-    def consultar_fecha(self):
+    def consultar_fecha(self): #no es lo mismo que 5 lineas abajo: consultar_reserva?
         fecha = View.pedir_fecha(self)
         disponible, fecha_propuesta = Agenda.get_reserva(self, fecha=fecha)
         View.respuesta_disponibilidad(self, disponibilidad=disponible, fecha=fecha_propuesta)
